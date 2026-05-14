@@ -1,0 +1,97 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+  background-color: #0d0f1a;
+  border-bottom: 1px solid #1e2035;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 16px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.header__logo-text {
+  font-family: "Billabong", "Dancing Script", cursive;
+  font-size: 26px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1a1d2e;
+  border: 1px solid #2a2d40;
+  border-radius: 8px;
+  padding: 8px 16px;
+  flex: 1;
+  max-width: 400px;
+}
+
+.header__search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #aaa;
+  font-size: 14px;
+  width: 100%;
+}
+
+.header__search-input::placeholder {
+  color: #666;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 160px;
+  justify-content: flex-end;
+}
+
+.header__icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.header__icon-btn:hover {
+  background: #1a1d2e;
+}
+
+.header__new-post-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #e1306c, #833ab4);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.header__new-post-btn:hover {
+  opacity: 0.85;
+}

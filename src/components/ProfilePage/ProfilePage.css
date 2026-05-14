@@ -1,0 +1,241 @@
+.profile-page {
+  padding: 32px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-page__header {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #1e2035;
+}
+
+.profile-page__avatar-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #e1306c, #833ab4, #f77737);
+  flex-shrink: 0;
+}
+
+.profile-page__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0d0f1a;
+  display: block;
+}
+
+.profile-page__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-page__name-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.profile-page__username {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.profile-page__edit-btn {
+  background: #1a1d2e;
+  border: 1px solid #2a2d40;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profile-page__edit-btn:hover {
+  background: #22253a;
+}
+
+.profile-page__settings-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.profile-page__settings-btn:hover {
+  background: #1a1d2e;
+}
+
+.profile-page__stats {
+  display: flex;
+  gap: 32px;
+}
+
+.profile-page__stat {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  color: #ccc;
+  font-size: 15px;
+}
+
+.profile-page__stat strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.profile-page__bio {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-page__display-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+}
+
+.profile-page__bio-text {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Tabs */
+.profile-page__tabs {
+  display: flex;
+  border-top: 1px solid #1e2035;
+  margin-bottom: 4px;
+}
+
+.profile-page__tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  border-top: 2px solid transparent;
+  color: #666;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.profile-page__tab:hover {
+  color: #aaa;
+}
+
+.profile-page__tab--active {
+  color: #ffffff;
+  border-top-color: #ffffff;
+}
+
+/* Grid */
+.profile-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.profile-page__grid-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #1a1d2e;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-page__grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: rotate(-3deg) scale(1.08);
+  transition: transform 0.3s;
+}
+
+.profile-page__grid-item:hover .profile-page__grid-img {
+  transform: rotate(-3deg) scale(1.15);
+}
+
+.profile-page__grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.profile-page__grid-overlay span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-page__grid-item:hover .profile-page__grid-overlay {
+  opacity: 1;
+}
+
+/* Empty state */
+.profile-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+  color: #555;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .profile-page__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-page__name-row {
+    justify-content: center;
+  }
+
+  .profile-page__stats {
+    justify-content: center;
+  }
+}
