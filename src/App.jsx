@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchCatImages } from "./api";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Stories from "./components/Stories/Stories";
@@ -33,20 +33,14 @@ function App() {
     async function fetchCats() {
       try {
         setLoading(true);
-        // Obtenemos 12 imágenes de gatos desde The Cat API
-        const response = await axios.get(
-          "https://api.thecatapi.com/v1/images/search",
-          {
-            params: { limit: 12, mime_types: "jpg,png" },
-          }
-        );
+        const cats = await fetchCatImages(12);
 
         // Obtenemos avatares para los posts desde Cataas
         const avatarUrls = POST_USERNAMES.map(
           (_, i) => `https://cataas.com/cat?width=40&height=40&i=${i}`
         );
 
-        const formattedPosts = response.data.map((cat, index) => ({
+        const formattedPosts = cats.map((cat, index) => ({
           id: cat.id,
           imageUrl: cat.url,
           username: POST_USERNAMES[index % POST_USERNAMES.length],

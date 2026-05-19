@@ -7,17 +7,6 @@ Clon web de Instagram desarrollado con React, que consume imágenes de gatos des
 
 ---
 
-## Cómo ejecutar el proyecto
-
-```bash
-npm install
-npm run dev
-```
-
-Luego abrir `http://localhost:5173` en el navegador.
-
----
-
 ## Organización del proyecto
 
 ```
