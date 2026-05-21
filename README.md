@@ -45,39 +45,39 @@ src/
 ## Componentes
 
 ### `Header`
-Barra superior fija que contiene el logo de Instagram, un campo de búsqueda y botones de acción (configuración, cámara, mensajes y nuevo post). Recibe `onNavigate` y `currentView` como props para manejar la navegación.
+Barra superior fija que contiene el logo de Instagram, un campo de busqueda y botones de acción (configuración, cámara, mensajes y nuevo post). Recibe `onNavigate` y `currentView` como props para manejar la navegación.
 
-**Justificación:** Se separó en su propio componente porque es una pieza visual independiente, siempre visible, y no depende del estado del feed ni del perfil.
+Se separó en su propio componente porque es una pieza visual independiente, siempre visible, y no depende del estado del feed ni del perfil.
 
 ### `Sidebar`
 Panel lateral izquierdo que muestra el perfil del usuario logueado (avatar, nombre, handle, seguidores y seguidos) y el menú de navegación principal (Home, Explore, Reels, IGTV, Notification, Profile). Recibe `user`, `currentView` y `onNavigate` como props.
 
-**Justificación:** Agrupa la identidad del usuario y la navegación en un único componente lateral, tal como lo hace el diseño de Figma. Al recibir `currentView`, puede resaltar el ítem activo sin manejar estado propio.
+Agrupa la identidad del usuario y la navegación en un único componente lateral, tal como lo hace el diseño de Figma. Al recibir `currentView`, puede resaltar el ítem activo sin manejar estado propio.
 
 ### `Stories`
 Sección horizontal de historias con avatares circulares con borde degradado. Recibe el array `stories` como prop y renderiza un `StoryItem` por cada historia.
 
-**Justificación:** Las stories son una sección visualmente diferenciada del feed. Separarlas permite reutilizarlas o modificarlas sin tocar el feed.
+Las stories son una sección visualmente diferenciada del feed. Separarlas permite reutilizarlas o modificarlas sin tocar el feed.
 
 ### `Feed`
 Grilla de 3 columnas que renderiza las publicaciones. Recibe `posts`, `onSelectPost` y `loading` como props. Mientras carga, muestra un skeleton animado. Delega el renderizado individual a `PostCard`.
 
-**Justificación:** El feed es el contenedor lógico de las publicaciones. Separarlo de `App` mantiene `App` limpio y permite que `Feed` maneje su propia presentación (loading, grid, título).
+El feed es el contenedor lógico de las publicaciones. Separarlo de `App` mantiene `App` limpio y permite que `Feed` maneje su propia presentación (loading, grid, título).
 
 ### `PostCard`
-Tarjeta individual de publicación. Muestra la imagen (rotada -3°), el avatar y username del autor, y botones de like, comentario y compartir. Maneja su propio estado de like con `useState`. Recibe `post` y `onSelect` como props.
+Tarjeta individual de publicación. Muestra la imagen, el avatar y username del autor, y botones de like, comentario y compartir. Maneja su propio estado de like con `useState`. Recibe `post` y `onSelect` como props.
 
-**Justificación:** Es la unidad mínima reutilizable del feed. Al manejar el estado de like localmente, cada tarjeta es independiente. Recibe `onSelect` para delegar la apertura del modal al componente padre.
+Es la unidad mínima reutilizable del feed. Al manejar el estado de like localmente, cada tarjeta es independiente. Recibe `onSelect` para delegar la apertura del modal al componente padre.
 
 ### `PostModal`
 Ventana emergente (modal) que muestra una publicación en detalle: imagen ampliada, usuario, fecha, caption, comentarios, botones de interacción y formulario para agregar comentarios. Maneja estado de like, guardado y lista de comentarios con `useState`. Cierra con la tecla Escape o haciendo clic fuera.
 
-**Justificación:** La visualización individual requiere más información y espacio que una tarjeta del feed. Un modal permite mostrar ese detalle sin cambiar de vista, manteniendo el contexto del feed visible detrás.
+La visualización individual requiere más información y espacio que una tarjeta del feed. Un modal permite mostrar ese detalle sin cambiar de vista, manteniendo el contexto del feed visible detrás.
 
 ### `ProfilePage`
 Vista completa del perfil del usuario logueado. Muestra avatar, nombre, handle, estadísticas (publicaciones, seguidores, seguidos), biografía, botón de editar perfil y una grilla de publicaciones con tabs (Publicaciones, Guardados, Etiquetados). Al hacer clic en una publicación abre el `PostModal`. Recibe `user` y `posts` como props.
 
-**Justificación:** El perfil es una vista completamente diferente al feed. Separarla en su propio componente permite que `App` simplemente decida qué vista renderizar según `currentView`, sin mezclar lógica de perfil con lógica de feed.
+El perfil es una vista completamente diferente al feed. Separarla en su propio componente permite que `App` simplemente decida qué vista renderizar según `currentView`, sin mezclar lógica de perfil con lógica de feed.
 
 ---
 
