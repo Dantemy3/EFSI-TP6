@@ -125,7 +125,7 @@ Cada imagen obtenida se combina con datos simulados (username, avatar, caption, 
 Se resolvió mediante un **modal** (`PostModal`). Al hacer clic en cualquier `PostCard` del feed o en cualquier imagen del perfil, se actualiza el estado `selectedPost` en el componente padre, lo que renderiza el `PostModal` con la información completa del post seleccionado.
 
 El modal muestra:
-- Imagen ampliada (rotada -3°)
+- Imagen ampliada 
 - Nombre de usuario y fecha
 - Caption
 - Lista de comentarios (con posibilidad de agregar nuevos)
