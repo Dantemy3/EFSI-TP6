@@ -178,12 +178,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: rotate(-3deg) scale(1.08);
+  transform: scale(1.08);
   transition: transform 0.3s;
 }
 
 .profile-page__grid-item:hover .profile-page__grid-img {
-  transform: rotate(-3deg) scale(1.15);
+  transform: scale(1.15);
 }
 
 .profile-page__grid-overlay {
